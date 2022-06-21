@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Analytics\Api;
 
 use Ebay\Sell\Analytics\Model\Report as ReportModel;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Report extends AbstractAPI
 {
@@ -167,9 +168,9 @@ class Report extends AbstractAPI
      *                       implementation help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/analytics/types/csb:SortField
      *
-     * @return ReportModel
+     * @return ReportModel|UnexpectedResponse
      */
-    public function get(array $queries = []): ReportModel
+    public function get(array $queries = [])
     {
         return $this->request(
         'getTrafficReport',

@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Analytics\Api;
 
 use Ebay\Sell\Analytics\Model\GetCustomerServiceMetricResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Metric extends AbstractAPI
 {
@@ -42,9 +43,9 @@ class Metric extends AbstractAPI
      *                                             restrictions</a>. For implementation help, refer to eBay API documentation at
      *                                             https://developer.ebay.com/api-docs/sell/analytics/types/bas:MarketplaceIdEnum
      *
-     * @return GetCustomerServiceMetricResponse
+     * @return GetCustomerServiceMetricResponse|UnexpectedResponse
      */
-    public function get(string $customer_service_metric_type, string $evaluation_type, array $queries = []): GetCustomerServiceMetricResponse
+    public function get(string $customer_service_metric_type, string $evaluation_type, array $queries = [])
     {
         return $this->request(
         'getCustomerServiceMetric',

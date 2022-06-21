@@ -4,6 +4,7 @@ namespace Ebay\Sell\Analytics\Api;
 
 use Ebay\Sell\Analytics\Model\FindSellerStandardsProfilesResponse;
 use Ebay\Sell\Analytics\Model\StandardsProfile;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Profile extends AbstractAPI
 {
@@ -19,9 +20,9 @@ class Profile extends AbstractAPI
      * specifies whether the standards compliance values were determined at the last
      * official eBay evaluation or at the time of the request.
      *
-     * @return FindSellerStandardsProfilesResponse
+     * @return FindSellerStandardsProfilesResponse|UnexpectedResponse
      */
-    public function finds(): FindSellerStandardsProfilesResponse
+    public function finds()
     {
         return $this->request(
         'findSellerStandardsProfiles',
@@ -57,9 +58,9 @@ class Profile extends AbstractAPI
      *                        values, <code>PROGRAM_DE</code>, <code>PROGRAM_UK</code>,
      *                        <code>PROGRAM_US</code>, or <code>PROGRAM_GLOBAL</code>.
      *
-     * @return StandardsProfile
+     * @return StandardsProfile|UnexpectedResponse
      */
-    public function get(string $cycle, string $program): StandardsProfile
+    public function get(string $cycle, string $program)
     {
         return $this->request(
         'getSellerStandardsProfile',
